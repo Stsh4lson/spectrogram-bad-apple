@@ -100,7 +100,7 @@ class BadApple():
 if __name__=="__main__":
     path_to_video = 'Touhou - Bad Apple.mp4'
     GoodApple = BadApple(path_to_video, frames_folder='frames')
-    video_buf = GoodApple.load_video()[:120]
+    video_buf = GoodApple.load_video()
     frequency_swipe = GoodApple.generate_frequency_swipe()
     
     for i, frame in tqdm(enumerate(video_buf), total=GoodApple.frameCount):        
