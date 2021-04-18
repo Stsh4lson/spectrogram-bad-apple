@@ -72,18 +72,12 @@ class BadApple():
         plt.close(fig)
         
     def create_video(self):
-        self.video_name = 'output_video.avi'        
-        
+        self.video_name = 'output_video.avi'
         filenames = [f'bad_apple_frame{i}.png' for i in range(1, self.frameCount+1)]
-
         frame = cv2.imread(os.path.join(self.frames_folder, filenames[0]))
         height, width, _ = frame.shape
-
         video = cv2.VideoWriter(self.video_name, 0, 30, (width,height))
-        for name in os.listdir(self.frames_folder):
-            print(name)
-            break
-
+        
         print("Generating video...")
         for image in tqdm(filenames):
             video.write(cv2.imread(os.path.join(self.frames_folder, image)))
@@ -92,6 +86,7 @@ class BadApple():
         video.release()
         
     def play_video(self):
+        print("""Playing video, you can quit with "q"... """)
         cap = cv2.VideoCapture(self.video_name)
         cv2.namedWindow('BadApple on Sepctrogram')
         frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
@@ -102,11 +97,10 @@ class BadApple():
                 break  # esc to quit
         cv2.destroyAllWindows()
         
-# Closes all the frames
-cv2.destroyAllWindows()
-if __name__=="__main__":    
-    GoodApple = BadApple('Touhou - Bad Apple.mp4', frames_folder='frames')
-    video_buf = GoodApple.load_video()
+if __name__=="__main__":
+    path_to_video = 'Touhou - Bad Apple.mp4'
+    GoodApple = BadApple(path_to_video, frames_folder='frames')
+    video_buf = GoodApple.load_video()[:120]
     frequency_swipe = GoodApple.generate_frequency_swipe()
     
     for i, frame in tqdm(enumerate(video_buf), total=GoodApple.frameCount):        
