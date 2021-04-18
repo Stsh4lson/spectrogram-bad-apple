@@ -10,7 +10,8 @@ class BadApple():
     def __init__(self, input_video_path, frames_folder):
         self.input_video_path = input_video_path
         self.frames_folder = frames_folder
-        self.max_freq = 360     
+        self.max_freq = 360
+        os.mkdir(frames_folder)
     
     def load_video(self):
         cap = cv2.VideoCapture(self.input_video_path)
