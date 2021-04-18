@@ -7,7 +7,8 @@ YouTube video: [https://youtu.be/VkdBqXakTS8](https://youtu.be/VkdBqXakTS8)
 
 ## Description
 Code generaters audio waveform for each frame of the video and then calculates its spectogram.
-its made with small range of frequencies because then it looks cool
+
+Its made with small range of frequencies because then it looks cool.
 
 ## LICENSE
 
