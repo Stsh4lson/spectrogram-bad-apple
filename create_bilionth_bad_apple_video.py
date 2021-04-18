@@ -109,11 +109,11 @@ if __name__=="__main__":
     video_buf = GoodApple.load_video()
     frequency_swipe = GoodApple.generate_frequency_swipe()
     
-    # for i, frame in tqdm(enumerate(video_buf), total=GoodApple.frameCount):        
-    #     audio_frame = GoodApple.audio_from_frame(frame, frequency_swipe)
-    #     GoodApple.save_output_frame(audio_frame, f'bad_apple_frame{i+1}')
+    for i, frame in tqdm(enumerate(video_buf), total=GoodApple.frameCount):        
+        audio_frame = GoodApple.audio_from_frame(frame, frequency_swipe)
+        GoodApple.save_output_frame(audio_frame, f'bad_apple_frame{i+1}')
         
         
     print('Done')
     GoodApple.create_video()
-    # GoodApple.play_video()
+    GoodApple.play_video()
