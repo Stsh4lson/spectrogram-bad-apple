@@ -1,0 +1,6 @@
+numpy
+librosa
+opencv-python
+matplotlib
+tqdm
+
